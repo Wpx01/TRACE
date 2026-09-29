@@ -1,0 +1,2 @@
+ncct,cta,ncct_mask,cta_mask
+data/ncct/case001.nii.gz,data/cta/case001.nii.gz,data/ncct_masks/case001.nii.gz,data/cta_masks/case001.nii.gz
