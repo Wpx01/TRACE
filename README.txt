@@ -6,9 +6,16 @@ Keep stage1 and stage2 together. Data and pretrained weights are not included.
 
 1. Data preparation
 
-Prepare paired NCCT and CTA volumes in .nii or .nii.gz format.
-Each pair must have the same image dimensions. Image intensities must already
-be mapped to 0-255 before using this code.
+Prepare paired NCCT and CTA volumes in .nii or .nii.gz format. Each pair must have the same image dimensions. 
+Apply the preprocessing to both NCCT and CTA before running the code:
+  a. Resample the images to 0.5 x 0.5 x 0.5 mm voxels using B-spline interpolation.
+  b. Apply a window level of 130 HU and a window width of 800 HU:
+     clip values below -270 HU to -270 and values above 530 HU to 530.
+  c. Linearly map this fixed HU range to 0-255:
+
+       image_255 = (clip(image_HU, -270, 530) + 270) * 255 / 800
+
+Save these preprocessed volumes as the inputs listed in train.csv.
 
 For stage1, also prepare a binary vessel mask (0 or 1) for each volume.
 Each mask must match its own image's dimensions, spacing, origin and direction.
