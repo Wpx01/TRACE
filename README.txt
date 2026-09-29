@@ -8,6 +8,7 @@ Keep stage1 and stage2 together. Data and pretrained weights are not included.
 
 Prepare paired NCCT and CTA volumes in .nii or .nii.gz format. Each pair must have the same image dimensions. 
 Apply the preprocessing to both NCCT and CTA before running the code:
+
   a. Resample the images to 0.5 x 0.5 x 0.5 mm voxels using B-spline interpolation.
   b. Apply a window level of 130 HU and a window width of 800 HU:
      clip values below -270 HU to -270 and values above 530 HU to 530.
