@@ -41,17 +41,7 @@ With Conda installed, create and activate an environment:
 conda create -n trace python=3.8.10 pip -y
 conda activate trace
 
-Install PyTorch and the remaining dependencies. This example uses the CUDA 12.1
-build of PyTorch and requires a compatible NVIDIA driver:
-
-python -m pip install torch==2.4.1 --index-url https://download.pytorch.org/whl/cu121
-python -m pip install -r requirements.txt
-
-Check that PyTorch can use the GPU (the result should be True):
-
-python -c "import torch; print(torch.cuda.is_available())"
-
-Other PyTorch builds: https://pytorch.org/get-started/previous-versions/#v241
+Install PyTorch and the remaining dependencies.
 
 
 3. Training
